@@ -1,36 +1,36 @@
-���c�[���T�v��
-csv��1��ڂ�number�ƌ����Ώۗ�̃A���t�@�x�b�g��run.bat�Ŏw��B�f�[�^�𒊏o���Aresult.txt�ɏo�͂���B
+＜ツール概要＞
+csvの1列目のnumberと検索対象列のアルファベットをrun.batで指定。データを抽出し、result.txtに出力する。
 
-���C���X�g�[���ҁ�
-�@��Python �C���X�g�[��
-�@�@https://www.python.org/downloads/
+＜インストール編＞
+　■Python インストール（このプロジェクトではPython 3.12.4を使用しています）
+　　https://www.python.org/downloads/
 
-�����O�����ҁ�
-�@�@���z���쐬
-�@�@�Q�lURL�Fhttps://qiita.com/nosniklim/items/1d4c480e3accd3eb8c0f
-�@�@
-�@�@�E���z���쐬
-�@�@�@py -m venv csvdata_extraction_tool
-�@
-�@�@�E���z����L���ɂ���
-�@�@�@cd csvdata_extraction_tool
-�@�@�@Scripts\activate
+＜事前準備編＞
+　①仮想環境作成
+　　参考URL：https://qiita.com/nosniklim/items/1d4c480e3accd3eb8c0f
+　　
+　　・仮想環境作成
+　　　py -m venv csvdata_extraction_tool
+　
+　　・仮想環境を有効にする
+　　　cd csvdata_extraction_tool
+　　　Scripts\activate
 
-�@�Acsvdata_extraction_tool.py�Arun.bat�Alist.csv���@�ō쐬�������z���z���Ɏ����Ă���
+　②csvdata_extraction_tool.py、run.bat、list.csvを①で作成した仮想環境配下に持っていく
 
-�@�Brun.bat�t�@�C���̒��g��ҏW�B���L�̈����Ŏ��s����邽�ߒ��o�������f�[�^�ɉ����ĕύX����
-�@�@py csvdata_extraction_tool �����Ώ�CSV�t�@�C���̐e�f�B���N�g��  �����Ώ�CSV�t�@�C���� csv1��ڂ̔ԍ� csv���o�Ώۗ�̃A���t�@�x�b�g�@>> result.txt
+　③run.batファイルの中身を編集。下記の引数で実行されるため抽出したいデータに応じて変更する
+　　py csvdata_extraction_tool 検索対象CSVファイルの親ディレクトリ  検索対象CSVファイル名 csv1列目の番号 csv抽出対象列のアルファベット　>> result.txt
 
-�@�@(��.)csv1��ڂ�number��2����B��̒l�𒊏o�������ꍇ
-�@�@�@�@set file_path="C:\Users~\csvdata_extraction_tool"
-�@�@�@�@set file_name="namelist.csv"
+　　(例.)csv1列目のnumberが2かつB列の値を抽出したい場合
+　　　　set file_path="C:\Users~\csvdata_extraction_tool"
+　　　　set file_name="namelist.csv"
 
-�@�@�@�@py csvdata_extraction_tool.py %file_path% %file_name% 2 "B" >> result.txt
+　　　　py csvdata_extraction_tool.py %file_path% %file_name% 2 "B" >> result.txt
 
 
-�@�C�R�}���h�v�����v�g�ɂ�run.bat�t�@�C�������s�B���ʂ�result.txt�ɏo�͂����B
-�@�@run.bat
+　④コマンドプロンプトにてrun.batファイルを実行。結果がresult.txtに出力される。
+　　run.bat
 
-��run.bat�t�@�C�����s���ɕ����������Ă���Ƃ��A�f�B���N�g���w��ŃG���[���o��ꍇ��
-�@chcp 65001
-�@����͂��čēx���s
+＜run.batファイル実行時に文字化けしているとき、ディレクトリ指定でエラーが出る場合＞
+　chcp 65001
+　を入力して再度実行
